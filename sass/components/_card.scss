@@ -1,0 +1,189 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem;
+
+  &__side {
+    height: 52rem;
+    color: #fff;
+    font-size: 2rem;
+    transition: all 2s ease;
+    position: absolute;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-radius: 0.4rem;
+    box-shadow: 0 1rem 5rem rgba(#000, 0.1);
+    &--front {
+      background-color: #fff;
+    }
+    &--back {
+      transform: rotateY(180deg);
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-seondary-light,
+          $color-seondary-dark
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+  &__picture {
+    background-size: cover;
+    background-position: center;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 85%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 85%, 0 100%);
+    -webkit-background-blend-mode: screen;
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-seondary-light,
+          $color-seondary-dark
+        ),
+        url("../img/nat-5.jpg");
+    }
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url("../img/nat-6.jpg");
+    }
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url("../img/nat-7.jpg");
+    }
+  }
+  &__heading {
+    font-size: 3rem;
+    font-weight: 380;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: right;
+    position: absolute;
+    top: 10rem;
+    right: 2rem;
+    width: 80%;
+    z-index: 4;
+  }
+  &__heading--span {
+    padding: 1rem;
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-seondary-light, 0.85),
+        rgba($color-seondary-dark, 0.85)
+      );
+    }
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-dark, 0.9),
+        rgba($color-primary-light, 0.9)
+      );
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-dark, 0.9),
+        rgba($color-tertiary-light, 0.9)
+      );
+    }
+  }
+  &__details {
+    padding: 3rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      color: $color-grey-dark;
+      padding: 0;
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem 0;
+        &:not(:last-child) {
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+  }
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+  }
+  &__price-box {
+    text-align: center;
+    margin-bottom: 8rem;
+    color: #fff;
+  }
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+  @media only screen and (max-width: 900px), only screen and (hover: none) {
+    height: auto;
+    &__side {
+      height: auto;
+      font-size: 2rem;
+      position: relative;
+      width: 100%;
+      padding: 4rem;
+      &--back {
+        transform: rotateY(0);
+      }
+    }
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+    }
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+  }
+}
